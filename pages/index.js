@@ -1,5 +1,7 @@
 import styles from '../styles/Home.module.css'
 import Title from '../components/Title'
+import Link from 'next/link'
+
 export default function Home({ data }) {
   return (
     <>
@@ -9,7 +11,9 @@ export default function Home({ data }) {
         {data.map((post, i) => {
           return (
             <div key={i}>
-              <h3>{post.title}</h3>
+              <Link href={`/blog/${post.id}`}>
+                <a><h3>{post.id} - {post.title}</h3></a>
+              </Link>
               <p>{post.body}</p> <hr />
             </div>
           )
