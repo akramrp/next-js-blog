@@ -20,9 +20,9 @@ export async function getStaticPaths() {
 
 // This gets called on every request
 export async function getStaticProps(context) {
-    const id = context.params.pageNo
+    const getid = context.params.pageNo
     // Fetch data from external API
-    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${getid}`)
     const data = await res.json()
 
     // Pass data to the page via props
