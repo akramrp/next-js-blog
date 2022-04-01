@@ -9,6 +9,7 @@ export default function Navbar() {
     <li><Link href="/product"><a>Product</a></Link></li>
     <li><Link href="/product/mobile"><a>Product/Mobile</a></Link></li>
     <li><Link href="/product/laptop"><a>Product/Laptop</a></Link></li>
+    <li><Link href="/useContextHook"><a>useContextHook</a></Link></li>
    </ul>
   </nav>
  )
