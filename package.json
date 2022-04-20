@@ -9,9 +9,12 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^2.8.8",
-    "next": "10.0.7",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
+    "@material-ui/core": "^4.12.4",
+    "formik": "^2.2.9",
+    "formik-material-ui": "^4.0.0-alpha.2",
+    "next": "^10.0.7",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-hook-form": "^7.30.0",
     "yup": "^0.32.11"
   }
