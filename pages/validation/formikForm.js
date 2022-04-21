@@ -12,7 +12,8 @@ import {
     Typography,
     FormControlLabel,
     Checkbox,
-    Button
+    Button,
+    MenuItem
 } from '@material-ui/core';
 
 //password validation
@@ -31,7 +32,7 @@ const validationSchema = yup.object({
         .string('Enter your email')
         .email('Enter a valid email')
         .required('Email is required'),
-    
+
     // password: yup.string()
     //     .matches(
     //         lowercaseRegEx,
@@ -44,14 +45,14 @@ const validationSchema = yup.object({
     //     .matches(numericRegEx, "Must contain one numeric character!")
     //     .matches(lengthRegEx, "Must contain 6 characters!")
     //     .required("Required!"),
-
+    state_id: yup.number().required('State is required'),
     password: yup
         .string('Enter your password')
         .min(7, 'Password should be of minimum 8 characters length')
         .required('Password is required'),
     confirmPassword: yup.string()
         .required('Confirm Password is required')
-        .oneOf([yup.ref('password'), null], 'Confirm Password does not match'),  
+        .oneOf([yup.ref('password'), null], 'Confirm Password does not match'),
     // acceptTerms: yup.bool().oneOf([true], 'Accept Terms is required') 
 });
 
@@ -63,10 +64,11 @@ export default function formikForm() {
         initialValues: {
             fullname: '',
             username: '',
+            state_id: '',
             email: 'example@gmail.com',
             password: 'example',
             confirmPassword: 'example',
-            acceptTerms:false
+            acceptTerms: false
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
@@ -86,7 +88,7 @@ export default function formikForm() {
                             <Grid item xs={4} sm={4}> </Grid>
                             <Grid item xs={4} sm={4}>
                                 <form onSubmit={formik.handleSubmit}>
-                                <Grid item xs={12} sm={6}>
+                                    <Grid item xs={12} sm={6}>
                                         <TextField
                                             fullWidth
                                             id="fullname"
@@ -121,6 +123,25 @@ export default function formikForm() {
                                             error={formik.touched.email && Boolean(formik.errors.email)}
                                             helperText={formik.touched.email && formik.errors.email}
                                         />
+                                    </Grid>
+                                    <Grid item xs={12} sm={6}>
+                                        <TextField
+                                            fullWidth
+                                            id="state_id"
+                                            name="state_id"
+                                            select
+                                            label="State"
+                                            value={formik.values.state_id}
+                                            onChange={formik.handleChange}
+                                            error={formik.touched.state_id && Boolean(formik.errors.state_id)}
+                                            helperText={formik.touched.state_id && formik.errors.state_id}
+                                        >
+                                            <MenuItem value=""><em>None</em></MenuItem>
+                                            <MenuItem key="1" value='1'>UP</MenuItem>
+                                            <MenuItem key="2" value='2'>UK</MenuItem>
+                                            <MenuItem key="3" value='3'>HR</MenuItem>
+                                            <MenuItem key="4" value='4'>MP</MenuItem>
+                                        </TextField>
                                     </Grid>
                                     <Grid item xs={12} sm={6}>
                                         <TextField
