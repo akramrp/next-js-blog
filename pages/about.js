@@ -8,7 +8,7 @@ export async function getServerSideProps(){
 }
 
 export default function About() {
-    //console.log('email=>', process.env.PRIVATE_EMAIL_ID) // browser return undefine for security properse
+    console.log('email=>', process.env.PRIVATE_EMAIL_ID) // browser return undefine for security properse
     return (
         <>
             <style jsx>
@@ -23,7 +23,7 @@ export default function About() {
                 }
             </style>
             <Title title="About" />
-            <h1>About Page</h1>
+            <h1>About Page {process.env.PRIVATE_EMAIL_ID}</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem inventore aperiam veniam impedit quas necessitatibus quis tempore delectus recusandae dolores animi nostrum sequi suscipit dolor ut adipisci, officiis minima?</p>
         </>
     )
